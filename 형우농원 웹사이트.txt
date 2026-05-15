@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>형우농원 — 우리가 먹는 것이 곧 나를 이룬다</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --earth: #1a2617;
+  --forest: #2d4528;
+  --moss: #3d5a3a;
+  --leaf: #5a8656;
+  --spring: #7fb577;
+  --sage: #a4c9a0;
+  --mist: #e2f0df;
+  --ivory: #fdfcf8;
+  --clay: #b88f68;
+  --gold: #d4a857;
+  --rust: #c85c42;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--ivory);
+  color: var(--earth);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ═══ HERO MANIFESTO ═══ */
+.manifesto {
+  min-height: 100vh;
+  display: flex; align-items:center; justify-content:center;
+  background: var(--earth);
+  position: relative;
+  overflow: hidden;
+}
+.manifesto-bg {
+  position: absolute; inset:0;
+  background-image: url('https://postfiles.pstatic.net/MjAyNjA0MzBfNTcg/MDAxNzc3NTMxNDkwOTc1.socI5pnq0NAjIQRL00h0hQLowCL8zzH1IYnRZxLM61Ig.bHDZ3_YG8_vtxiwGBYxaslvyMBJ2cmOC5vI8m0T0cZkg.PNG/Gemini_Generated_Image_q2qeaoq2qeaoq2qe.png?type=w773');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.75) saturate(1.3);
+}
+.manifesto-overlay {
+  position: absolute; inset:0;
+  background: linear-gradient(180deg, rgba(45,69,40,0.35) 0%, rgba(58,89,52,0.25) 100%);
+}
+.manifesto-content {
+  position: relative; z-index:1;
+  text-align: center;
+  max-width: 920px; margin:0 auto;
+  padding: 120px 40px 80px;
+  animation: fadeUp 1s ease both;
+}
+.manifesto-label {
+  display: inline-block;
+  padding: 10px 24px;
+  background: rgba(127,181,119,.25);
+  border: 1px solid rgba(127,181,119,.55);
+  border-radius: 100px;
+  color: #b8e6b3;
+  font-size: 15px; font-weight:700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  backdrop-filter: blur(10px);
+}
+.manifesto-main {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 28px rgba(0,0,0,.6);
+}
+.manifesto-main em {
+  font-style: normal;
+  color: #a8e6a0;
+  display: block;
+  margin-top: 8px;
+}
+.manifesto-sub {
+  font-size: clamp(15px, 1.8vw, 19px);
+  color: rgba(255,255,255,.8);
+  line-height: 1.85;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.4);
+}
+.manifesto-location {
+  font-size: clamp(32px, 4vw, 52px);
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  text-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.manifesto-location span {
+  display: block;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  color: #a8e6a0;
+  margin-top: 12px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.manifesto-cta {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-manifesto {
+  display: flex; align-items:center; gap:10px;
+  padding: 18px 36px;
+  border-radius: 14px;
+  font-size: 15px; font-weight:700;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-manifesto:hover { transform:translateY(-4px); }
+.btn-primary {
+  background: #5fb356;
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(95,179,86,.45);
+}
+.btn-secondary {
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+}
+.btn-manifesto svg { width:19px; height:19px; fill:currentColor; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(40px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* ═══ PHILOSOPHY ═══ */
+.philosophy {
+  padding: 120px 40px;
+  background: var(--ivory);
+}
+.philosophy-inner {
+  max-width: 1100px; margin:0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.phil-text {}
+.phil-label {
+  font-size: 11.5px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--leaf);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.phil-heading {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(34px, 3.8vw, 46px);
+  font-weight: 800;
+  color: var(--earth);
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+.phil-p {
+  font-size: 15.5px;
+  color: #555;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+.phil-quote {
+  margin-top: 36px;
+  padding: 28px 32px;
+  background: var(--mist);
+  border-left: 4px solid var(--leaf);
+  border-radius: 12px;
+}
+.phil-quote-text {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1.75;
+}
+.phil-visual {
+  position: relative;
+  height: 560px;
+}
+.phil-img {
+  position: absolute;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 56px rgba(26,38,23,.18);
+}
+.phil-img-main {
+  width: 100%;
+  height: 420px;
+  top: 0; right: 0;
+}
+.phil-img-sub {
+  width: 58%;
+  height: 240px;
+  bottom: 0; left: 0;
+}
+.phil-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ═══ PRODUCTS ═══ */
+.products {
+  padding: 100px 40px;
+  background: linear-gradient(180deg, var(--ivory) 0%, #f7f4ee 100%);
+}
+.products-inner { max-width: 1300px; margin:0 auto; }
+.section-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 36px;
+}
+.product-card {
+  background: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(26,38,23,.1);
+  transition: transform .3s, box-shadow .3s;
+}
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 64px rgba(26,38,23,.16);
+}
+.pc-img-wrap {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: var(--mist);
+}
+.pc-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s;
+}
+.product-card:hover .pc-img-wrap img { transform:scale(1.06); }
+.pc-badge {
+  position: absolute;
+  top: 18px; right: 18px;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(8px);
+  padding: 7px 16px;
+  border-radius: 100px;
+  font-size: 12px; font-weight:700;
+  color: var(--forest);
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+.pc-body {
+  padding: 32px;
+}
+.pc-name {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 26px; font-weight:800;
+  color: var(--earth);
+  margin-bottom: 10px;
+}
+.pc-sub {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 18px;
+}
+.pc-desc {
+  font-size: 14.5px;
+  color: #666;
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+.pc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  border-top: 1px solid var(--mist);
+}
+.pc-price {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 22px; font-weight:700;
+  color: var(--forest);
+}
+.pc-unit { font-size:12.5px; color:#bbb; font-weight:400; }
+.btn-order {
+  display: flex; align-items:center; gap:9px;
+  padding: 13px 24px;
+  background: var(--forest);
+  color: #fff;
+  border-radius: 11px;
+  font-size: 13.5px; font-weight:700;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.btn-order:hover {
+  background: var(--leaf);
+  transform: translateY(-2px);
+}
+.btn-order svg { width:16px; height:16px; fill:currentColor; }
+
+/* ═══ FARMER INFO ═══ */
+.farmer {
+  padding: 100px 40px;
+  background: var(--earth);
+  color: #fff;
+}
+.farmer-inner {
+  max-width: 1100px; margin:0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.farmer-img {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
+.farmer-img img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+.farmer-text {}
+.farmer-text .phil-label { color:var(--spring); }
+.farmer-text .phil-heading { color:#fff; }
+.farmer-text .phil-p { color:rgba(255,255,255,.7); }
+.farmer-signature {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.farmer-name {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--spring);
+  margin-bottom: 6px;
+}
+.farmer-title {
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+}
+
+/* ═══ TRUST BADGES ═══ */
+.trust {
+  padding: 100px 40px;
+  background: var(--mist);
+}
+.trust-inner { max-width:1100px; margin:0 auto; }
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.trust-item {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(26,38,23,.08);
+}
+.trust-icon { font-size:42px; display:block; margin-bottom:16px; }
+.trust-title { font-size:15px; font-weight:700; color:var(--forest); margin-bottom:8px; }
+.trust-desc { font-size:12.5px; color:#888; line-height:1.7; }
+
+/* ═══ CTA ═══ */
+.cta {
+  padding: 100px 40px;
+  background: var(--forest);
+  text-align: center;
+}
+.cta-inner { max-width:800px; margin:0 auto; }
+.cta-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(32px, 3.5vw, 44px);
+  font-weight:800;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.cta-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 44px;
+  line-height: 1.9;
+}
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.btn-cta {
+  display: flex; align-items:center; gap:11px;
+  padding: 19px 38px;
+  border-radius: 14px;
+  font-size: 15.5px; font-weight:700;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-cta:hover { transform:translateY(-4px); }
+.btn-cta-ig {
+  background: linear-gradient(135deg, #f09433, #e1306c, #bc1888);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(225,48,108,.4);
+}
+.btn-cta-store {
+  background: #03c75a;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(3,199,90,.35);
+}
+.btn-cta svg { width:19px; height:19px; fill:currentColor; }
+
+/* ═══ FOOTER ═══ */
+footer {
+  background: var(--earth);
+  padding: 70px 40px 36px;
+  color: rgba(255,255,255,.6);
+}
+.footer-inner { max-width:1300px; margin:0 auto; }
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  gap: 60px;
+}
+.footer-brand {}
+.footer-logo {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.footer-tagline {
+  font-size: 14px;
+  color: rgba(255,255,255,.5);
+  line-height: 1.9;
+  max-width: 320px;
+}
+.footer-sns {
+  display: flex; gap:14px;
+  margin-top: 24px;
+}
+.footer-sns-btn {
+  display: flex; align-items:center; gap:9px;
+  padding: 12px 22px;
+  border-radius: 100px;
+  font-size: 13px; font-weight:700;
+  text-decoration: none;
+  transition: transform .2s;
+}
+.footer-sns-btn:hover { transform:translateY(-3px); }
+.footer-sns-btn.ig {
+  background: linear-gradient(135deg, #f09433, #e1306c, #bc1888);
+  color: #fff;
+}
+.footer-sns-btn.store {
+  background: #03c75a;
+  color: #fff;
+}
+.footer-sns-btn svg { width:16px; height:16px; fill:currentColor; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  font-size: 12.5px;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width:900px) {
+  .philosophy-inner, .farmer-inner { grid-template-columns:1fr; }
+  .phil-visual { height:400px; }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width:640px) {
+  .products-grid { grid-template-columns:1fr; }
+  .trust-grid { grid-template-columns:1fr; }
+  .footer-top { flex-direction:column; }
+}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .8s, transform .8s;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- MANIFESTO HERO -->
+<section class="manifesto">
+  <div class="manifesto-bg"></div>
+  <div class="manifesto-overlay"></div>
+  <div class="manifesto-content">
+    <div class="manifesto-label">형우농원 · 인제 토박이의 철학</div>
+    <h1 class="manifesto-main">
+      우리가 먹는 것이<br><em>곧 나를 이룬다</em>
+    </h1>
+    <p class="manifesto-sub">
+      오늘 당신이 선택한 한 끼는 내일의 당신을 구성하는 소중한 벽돌이 됩니다.<br>
+      목을 넘어가는 순간 음식은 우리 몸이라는 정교한 실험실 안에서<br class="desktop-only">
+      생명의 언어로 변환됩니다. 그렇기에 믿고 구매할 수 있어야 합니다.
+    </p>
+    <div class="manifesto-location">
+      형우농원
+      <span>명이나물 · 두릅 · 엄나무순 · 눈개승마 · 오가피순 직접재배</span>
+    </div>
+    <div class="manifesto-cta">
+      <a href="#products" class="btn-manifesto btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        봄나물 보러가기
+      </a>
+      <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="btn-manifesto btn-secondary">
+        <svg viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 0H0l8.988 12.332L0 24h7.376l8.897-11.155zM16.624 0L24 12 16.624 24H24l0-24h-7.376z"/></svg>
+        스마트스토어
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-inner">
+    <div class="phil-text reveal">
+      <div class="phil-label">우리의 철학</div>
+      <h2 class="phil-heading">청정 내음이 물씬<br>하늘이 내려준 자연</h2>
+      <p class="phil-p">
+        강원도 인제 청정지역에서 하늘이 내려준 햇볕과 바람으로 자란 봄나물들입니다. 화학비료 없이 자연 그대로, 신선하고 초록초록 자라서 먹는 이로 하여금 우리 몸을 이롭게 합니다.
+      </p>
+      <p class="phil-p">
+        형우농원은 인제에서 나고 자란 인제 토박이가 직접 재배하는 농장입니다. 36년간 공무원으로 근무하고 정년퇴임 후, 이 땅의 흙과 바람과 물을 평생 알아온 사람이 정성으로 키운 봄나물이기에 누구보다 자신있게 권합니다.
+      </p>
+      <div class="phil-quote">
+        <div class="phil-quote-text">
+          "음식은 입을 거쳐 목을 넘어가는 순간<br>
+          우리 몸이라는 정교한 실험실 안에서<br>
+          생명의 언어로 변환됩니다"
+        </div>
+      </div>
+    </div>
+    <div class="phil-visual reveal">
+      <div class="phil-img phil-img-main">
+        <img src="/mnt/user-data/uploads/봄나물4가지.png" alt="강원도 인제 봄산나물">
+      </div>
+      <div class="phil-img phil-img-sub">
+        <img src="/mnt/user-data/uploads/KakaoTalk_20260430_145358207.jpg" alt="데친 봄나물">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-inner">
+    <div class="section-header reveal">
+      <div class="phil-label">형우농원 봄나물</div>
+      <h2 class="phil-heading">직접 재배한 5가지 산나물</h2>
+      <p class="phil-p" style="max-width:600px; margin:16px auto 0;">
+        건강한 먹거리를 원하는 당신, 제철 음식을 먹고 싶은 당신,<br>
+        청정 봄나물을 먹고 싶은 당신을 위해 준비했습니다
+      </p>
+    </div>
+    <div class="products-grid">
+
+      <!-- 명이나물 -->
+      <div class="product-card reveal">
+        <div class="pc-img-wrap">
+          <img src="/mnt/user-data/uploads/KakaoTalk_20260430_145358207_06.jpg" alt="명이나물">
+          <div class="pc-badge">3~6월 · 장아찌 연중</div>
+        </div>
+        <div class="pc-body">
+          <h3 class="pc-name">명이나물</h3>
+          <div class="pc-sub">산마늘 · 쌈용 · 장아찌</div>
+          <p class="pc-desc">은은한 마늘향과 부드러운 식감. 고기 쌈이나 장아찌로 최고. 간장 장아찌로 담으면 냉장 2~3주 보관 가능, 연중 드실 수 있습니다.</p>
+          <div class="pc-footer">
+            <div>
+              <span class="pc-price">8,000원~</span>
+              <span class="pc-unit">/ 200g</span>
+            </div>
+            <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="btn-order">
+              <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              구매하기
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 두릅 -->
+      <div class="product-card reveal">
+        <div class="pc-img-wrap">
+          <img src="/mnt/user-data/uploads/KakaoTalk_20260430_145358207_03.jpg" alt="두릅">
+          <div class="pc-badge">4~5월</div>
+        </div>
+        <div class="pc-body">
+          <h3 class="pc-name">두릅</h3>
+          <div class="pc-sub">참두릅 · 땅두릅 · 봄나물의 왕</div>
+          <p class="pc-desc">사포닌이 풍부해 피로 해소와 혈당 조절에 탁월. 향긋하고 쌉쌀한 맛이 입맛을 깨우는 봄의 대표 나물. 살짝 데쳐 초장에 찍거나 두릅전으로 드세요.</p>
+          <div class="pc-footer">
+            <div>
+              <span class="pc-price">6,000원~</span>
+              <span class="pc-unit">/ 200g</span>
+            </div>
+            <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="btn-order">
+              <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              구매하기
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 엄나무순 -->
+      <div class="product-card reveal">
+        <div class="pc-img-wrap">
+          <img src="/mnt/user-data/uploads/KakaoTalk_20260430_145358207_01.jpg" alt="엄나무순">
+          <div class="pc-badge">4~5월</div>
+        </div>
+        <div class="pc-body">
+          <h3 class="pc-name">엄나무순</h3>
+          <div class="pc-sub">개두릅 · 약용 보양 나물</div>
+          <p class="pc-desc">엄나무(음나무)의 새순으로 두릅과 비슷하나 더 깊은 향이 특징. 속껍질은 한약재로도 사용되는 보양 식재료. 데쳐서 나물무침이나 된장국으로.</p>
+          <div class="pc-footer">
+            <div>
+              <span class="pc-price">8,000원~</span>
+              <span class="pc-unit">/ 300g</span>
+            </div>
+            <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="btn-order">
+              <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              구매하기
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 눈개승마 -->
+      <div class="product-card reveal">
+        <div class="pc-img-wrap">
+          <img src="/mnt/user-data/uploads/pomelli_catalog_image_0423.png" alt="눈개승마">
+          <div class="pc-badge">4~5월</div>
+        </div>
+        <div class="pc-body">
+          <h3 class="pc-name">눈개승마</h3>
+          <div class="pc-sub">삼나물 · 부드럽고 은은한 향</div>
+          <p class="pc-desc">부드럽고 은은한 향이 특징인 고급 산나물. 데쳐서 나물 무침이나 된장국에 넣으면 풍미가 한층 깊어집니다. 건강식을 선호하시는 분들께 추천합니다.</p>
+          <div class="pc-footer">
+            <div>
+              <span class="pc-price">10,000원~</span>
+              <span class="pc-unit">/ 200g</span>
+            </div>
+            <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="btn-order">
+              <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              구매하기
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 오가피순 -->
+      <div class="product-card reveal">
+        <div class="pc-img-wrap">
+          <img src="/mnt/user-data/uploads/KakaoTalk_20260430_145358207_04.jpg" alt="오가피순">
+          <div class="pc-badge">5~6월 · 한정</div>
+        </div>
+        <div class="pc-body">
+          <h3 class="pc-name">오가피순</h3>
+          <div class="pc-sub">프리미엄 한방 봄나물</div>
+          <p class="pc-desc">오가피나무의 어린 새순. 한방에서 강장·항피로 효능으로 유명. 시중에서 쉽게 구하기 어려운 희귀 봄나물. 살짝 데쳐 참기름에 무치면 최고입니다.</p>
+          <div class="pc-footer">
+            <div>
+              <span class="pc-price">8,000원~</span>
+              <span class="pc-unit">/ 200g</span>
+            </div>
+            <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="btn-order">
+              <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              구매하기
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FARMER -->
+<section class="farmer">
+  <div class="farmer-inner">
+    <div class="farmer-img reveal">
+      <img src="/mnt/user-data/uploads/KakaoTalk_20260430_145358207_02.jpg" alt="형우농원 재배지">
+    </div>
+    <div class="farmer-text reveal">
+      <div class="phil-label">재배자 소개</div>
+      <h2 class="phil-heading">인제 토박이가<br>직접 키웁니다</h2>
+      <p class="phil-p">
+        형우농원의 재배자는 인제에서 나고 자란 인제 토박이입니다. 36년간 공무원으로 근무하고 정년퇴임 후 직접 재배하는 농장입니다.
+      </p>
+      <p class="phil-p">
+        이 땅의 흙과 바람과 물을 평생 알아온 사람이 정성으로 키운 봄나물이기에, 누구보다 자신있게 권합니다. 매년 정기적으로 예약하여 제철 봄나물을 받으시는 단골 고객님들이 계실 정도로, 신뢰를 바탕으로 한 장기 거래 관계를 소중히 여깁니다.
+      </p>
+      <div class="farmer-signature">
+        <div class="farmer-name">형우농원</div>
+        <div class="farmer-title">강원도 인제 · 36년 공직 후 제2의 인생</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="section-header reveal">
+      <div class="phil-label">믿을 수 있는 이유</div>
+      <h2 class="phil-heading">형우농원의 약속</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <span class="trust-icon">🌄</span>
+        <div class="trust-title">청정지역 재배</div>
+        <div class="trust-desc">강원도 인제 청정지역에서 재배한 봄나물</div>
+      </div>
+      <div class="trust-item reveal">
+        <span class="trust-icon">🌱</span>
+        <div class="trust-title">무농약 자연재배</div>
+        <div class="trust-desc">화학비료 없이 하늘이 내려준 햇볕과 바람으로</div>
+      </div>
+      <div class="trust-item reveal">
+        <span class="trust-icon">🚚</span>
+        <div class="trust-title">산지 직송</div>
+        <div class="trust-desc">당일 채취 즉시 포장하여 신선함 그대로 발송</div>
+      </div>
+      <div class="trust-item reveal">
+        <span class="trust-icon">📅</span>
+        <div class="trust-title">예약 판매 시스템</div>
+        <div class="trust-desc">매년 정기 예약으로 제철 봄나물을 놓치지 마세요</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">오늘 선택한 한 끼가<br>내일의 나를 만듭니다</h2>
+    <p class="cta-desc">
+      형우농원의 청정 봄나물로 건강한 식탁을 차려보세요.<br>
+      인스타그램에서 채취 현장과 조리법을 확인하실 수 있습니다.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://www.instagram.com/YOUR_INSTAGRAM_ID" target="_blank" class="btn-cta btn-cta-ig">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        인스타그램 팔로우
+      </a>
+      <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="btn-cta btn-cta-store">
+        <svg viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 0H0l8.988 12.332L0 24h7.376l8.897-11.155zM16.624 0L24 12 16.624 24H24l0-24h-7.376z"/></svg>
+        스마트스토어 바로가기
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">형우농원</div>
+        <div class="footer-tagline">
+          우리가 먹는 것이 곧 나를 이룬다.<br>
+          강원도 인제에서 직접 재배한<br>
+          청정 봄나물을 산지 직송합니다.
+        </div>
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/YOUR_INSTAGRAM_ID" target="_blank" class="footer-sns-btn ig">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            인스타그램
+          </a>
+          <a href="https://smartstore.naver.com/YOUR_STORE_ID" target="_blank" class="footer-sns-btn store">
+            <svg viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 0H0l8.988 12.332L0 24h7.376l8.897-11.155zM16.624 0L24 12 16.624 24H24l0-24h-7.376z"/></svg>
+            스마트스토어
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 형우농원. 강원도 인제 봄나물 전문.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 120);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
